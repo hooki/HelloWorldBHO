@@ -1,0 +1,34 @@
+// HelloWorld.idl : HelloWorld의 IDL 소스입니다.
+//
+
+// 이 파일은 MIDL 도구에 의해 처리되어
+// 형식 라이브러리(HelloWorld.tlb) 및 마샬링 코드가 생성됩니다.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(52585931-DE7E-44E2-A438-A0763398FA53),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IHelloWorldBHO : IDispatch{
+};
+[
+	uuid(C22C6D5B-6D9A-4578-AFC0-99B6209BACA7),
+	version(1.0),
+]
+library HelloWorldLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(6863C4FB-010D-43F2-953C-D54A79307C5E)		
+	]
+	coclass HelloWorldBHO
+	{
+		[default] interface IHelloWorldBHO;
+	};
+};
+

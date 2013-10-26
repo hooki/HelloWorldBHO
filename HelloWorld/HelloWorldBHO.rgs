@@ -1,0 +1,33 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {6863C4FB-010D-43F2-953C-D54A79307C5E} = s 'HelloWorldBHO Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{C22C6D5B-6D9A-4578-AFC0-99B6209BACA7}'
+			Version = s '1.0'
+		}
+	}
+}
+HKLM {
+	NoRemove SOFTWARE {
+		NoRemove Microsoft {
+			NoRemove Windows {
+				NoRemove CurrentVersion {
+					NoRemove Explorer {
+						NoRemove 'Browser Helper Objects' {
+							ForceRemove '{6863C4FB-010D-43F2-953C-D54A79307C5E}' = s 'HelloWorldBHO' {
+								val 'NoExplorer' = d '1'
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
